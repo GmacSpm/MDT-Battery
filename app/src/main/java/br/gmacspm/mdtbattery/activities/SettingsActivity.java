@@ -18,7 +18,6 @@ import br.gmacspm.mdtbattery.room.background.BackgroundDB;
 import br.gmacspm.mdtbattery.services.BatteryMonitorService;
 import br.gmacspm.mdtbattery.utils.BatteryOptimization;
 
-// TODO: Refatorar getStrings pra fora dos listeners
 public class SettingsActivity extends AppCompatActivity {
     private Button buttonException;
     private Settings settings;
@@ -49,18 +48,16 @@ public class SettingsActivity extends AppCompatActivity {
             BatteryOptimization.openBatteryOptimizationSettings(SettingsActivity.this);
         });
 
-        String strMaxCharge = getString(R.string.max_charge);
-        String strDialogMaxCharge = getString(R.string.dialog_maximum_charge);
-        buttonMaxCharge.setText(String.format(strMaxCharge, settings.getMaxCharge() + "%"));
+        buttonMaxCharge.setText(String.format(getString(R.string.max_charge), settings.getMaxCharge() + "%"));
         buttonMaxCharge.setOnClickListener(v -> {
             CustomDialog customDialog = new CustomDialog(
                     context,
-                    strDialogMaxCharge,
+                    getString(R.string.dialog_maximum_charge),
                     String.valueOf(settings.getMaxCharge())
             );
             customDialog.setListener(max -> {
                 settings.setMaxCharge((int) max);
-                buttonMaxCharge.setText(String.format(strMaxCharge, (int) max + "%"));
+                buttonMaxCharge.setText(String.format(getString(R.string.max_charge), (int) max + "%"));
                 updateService();
             });
             customDialog.show();
