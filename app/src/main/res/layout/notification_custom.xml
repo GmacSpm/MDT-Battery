@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center|start">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp">
+
+        <TextView
+            style="@style/Theme.GSBatt.NotificationTitleOnText"
+            android:layout_width="wrap_content"
+            android:background="@drawable/drw_round_on"
+            android:layout_height="wrap_content"
+            android:text="@string/notification_average_on" />
+
+        <TextView
+            android:id="@+id/notification_avg_on"
+            style="@style/Theme.GSBatt.NotificationText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_time" />
+    </LinearLayout>
+
+
+    <LinearLayout
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp">
+
+        <TextView
+            android:id="@+id/notification_target_percent"
+            style="@style/Theme.GSBatt.NotificationTitleOnText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/notification_target_on" />
+
+        <TextView
+            android:id="@+id/notification_remaining_on"
+            style="@style/Theme.GSBatt.NotificationText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_time" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp">
+
+        <TextView
+            style="@style/Theme.GSBatt.NotificationTitleOffText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/notification_avg_off" />
+
+        <TextView
+            android:id="@+id/notification_avg_off"
+            style="@style/Theme.GSBatt.NotificationText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_time" />
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp">
+
+        <TextView
+            android:id="@+id/notification_target_percent_2"
+            style="@style/Theme.GSBatt.NotificationTitleOffText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/notification_target_off" />
+
+        <TextView
+            android:id="@+id/notification_remaining_off"
+            style="@style/Theme.GSBatt.NotificationText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_time" />
+    </LinearLayout>
+
+</LinearLayout>

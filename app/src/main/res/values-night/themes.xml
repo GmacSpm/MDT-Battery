@@ -1,0 +1,126 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.GSBatt" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/black_12</item>
+        <item name="colorPrimaryVariant">@color/black_12</item>
+        <item name="colorOnPrimary">@color/gray</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/purple_500</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/black_12</item>
+        <item name="android:navigationBarColor">@color/black_12</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/gray</item>
+        <item name="android:colorBackground">@color/gray</item>
+        <item name="actionBarItemColor">@color/purple_500</item>
+        <item name="android:textColor">@color/text_color_white</item>
+        <item name="graphColor">@color/graph_color_dark</item>
+    </style>
+
+    <!--  CardView style   -->
+    <style name="Theme.GSBatt.CardView">
+        <item name="cardBackgroundColor">@color/black_12</item>
+        <item name="cardCornerRadius">10dp</item>
+        <item name="cardElevation">5dp</item>
+        <item name="contentPadding">10dp</item>
+    </style>
+
+    <!--  CircleProgressBar style   -->
+    <style name="Theme.GSBatt.CircleProgress">
+        <item name="cpv_barColor">@color/purple_500</item>
+        <item name="cpv_rimColor">@color/gray</item>
+    </style>
+
+    <!--  BottomNavigation style   -->
+    <style name="Theme.GSBatt.BottomNavigation">
+        <item name="android:background">@drawable/twelve</item>
+    </style>
+
+    <!--  Texts inside application   -->
+    <style name="Theme.GSBatt.MainTitleText">
+        <item name="android:textColor">?android:textColor</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Theme.GSBatt.TitleText">
+        <item name="android:textColor">?android:textColor</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Theme.GSBatt.ContentText">
+        <item name="android:textColor">?android:textColor</item>
+    </style>
+
+    <!-- Notification Styles -->
+    <style name="Theme.GSBatt.NotificationTitleOnText" parent="">
+        <item name="android:background">@drawable/drw_round_on</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:paddingStart">5dp</item>
+        <item name="android:paddingEnd">5dp</item>
+    </style>
+
+    <style name="Theme.GSBatt.NotificationTitleOffText" parent="">
+        <item name="android:background">@drawable/drw_round_off_dark</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:paddingStart">5dp</item>
+        <item name="android:paddingEnd">5dp</item>
+    </style>
+
+    <style name="Theme.GSBatt.NotificationText" parent="">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!--  Settings Button Style  -->
+    <style name="Theme.GSBatt.SettingsButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:padding">14dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:textColor">?android:textColor</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:drawableEnd">@drawable/ic_arrow_right</item>
+        <item name="android:fontFamily">sans-serif-medium"</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <!--  Settings Button Style  -->
+    <style name="Theme.GSBatt.SettingsSwitch" parent="Widget.AppCompat.CompoundButton.Switch">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:textColor">?android:textColor</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!--  CustomProgressBar blue and gray  -->
+    <style name="CustomProgressBar" parent="android:Widget.ProgressBar.Horizontal">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/drw_horizontal_progressbar_dark</item>
+        <item name="android:minHeight">10dip</item>
+        <item name="android:maxHeight">20dip</item>
+    </style>
+
+
+    <style name="MaterialAlertDialog_rounded" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="shapeAppearanceOverlay">@style/DialogCorners</item>
+        <item name="android:background">@color/black_12</item>
+    </style>
+
+    <style name="DialogCorners" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+</resources>

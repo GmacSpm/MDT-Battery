@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#8095FF</color>
+    <color name="purple_700">#2C48D9</color>
+    <color name="purple_soft">#D4DBFF</color>
+
+    <color name="teal_200">#8095FF</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#000000</color>
+    <color name="black_12">#121212</color>
+    <color name="gray">#070707</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="text_color_gray">#404040</color>
+    <color name="text_color_white">#DDDDDD</color>
+    <color name="graph_color">#8095FF</color>
+    <color name="graph_color_dark">#8095FF</color>
+
+    <!--  Modo escuro não aceita cor preta, então setamos um cinza meio transparente  -->
+    <color name="semi_gray">#30404040</color>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="toolbar_theme" format="reference" />
+    <attr name="actionBarItemColor" format="reference" />
+    <attr name="graphColor" format="reference" />
+</resources>

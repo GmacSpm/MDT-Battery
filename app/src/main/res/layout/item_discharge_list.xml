@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+    <TextView
+        style="@style/Theme.GSBatt.ContentText"
+        android:id="@+id/list_level"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.3"
+        android:text="@string/sample_item_discharge"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <TextView
+            style="@style/Theme.GSBatt.ContentText"
+            android:id="@+id/list_ON"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="@string/default_time"
+            android:textSize="17sp" />
+
+        <ProgressBar
+            android:id="@+id/list_progress"
+            style="@style/CustomProgressBar"
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:progress="50" />
+
+        <TextView
+            style="@style/Theme.GSBatt.ContentText"
+            android:id="@+id/list_OFF"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/default_time"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+</LinearLayout>

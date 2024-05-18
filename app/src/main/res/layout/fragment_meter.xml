@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/Theme.GSBatt.MainTitleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/mah_current" />
+
+    <androidx.cardview.widget.CardView
+        style="@style/Theme.GSBatt.CardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:layout_marginStart="10dp"
+            android:gravity="start"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Theme.GSBatt.TitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/min" />
+
+            <TextView
+                android:id="@+id/meter_min_current_text"
+                style="@style/Theme.GSBatt.ContentText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/default_current_mah" />
+
+            <TextView
+                style="@style/Theme.GSBatt.ContentText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/mah" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Theme.GSBatt.TitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/actual" />
+
+            <TextView
+                android:id="@+id/meter_current_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/default_current_mah"
+                android:textSize="40sp" />
+
+            <TextView
+                style="@style/Theme.GSBatt.ContentText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mah" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="10dp"
+            android:gravity="end"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Theme.GSBatt.TitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/max" />
+
+            <TextView
+                android:id="@+id/meter_max_current_text"
+                style="@style/Theme.GSBatt.ContentText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/default_current_mah" />
+
+            <TextView
+                style="@style/Theme.GSBatt.ContentText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/mah" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        style="@style/Theme.GSBatt.MainTitleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="@string/temperature" />
+
+    <androidx.cardview.widget.CardView
+        style="@style/Theme.GSBatt.CardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:layout_marginStart="10dp"
+            android:gravity="start"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Theme.GSBatt.TitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/min" />
+
+            <TextView
+                android:id="@+id/meter_min_temp_text"
+                style="@style/Theme.GSBatt.ContentText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/default_current_mah" />
+
+            <TextView
+                style="@style/Theme.GSBatt.ContentText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/temperature_unit" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Theme.GSBatt.TitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/actual" />
+
+            <TextView
+                android:id="@+id/meter_actual_temp_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/default_current_mah"
+                android:textSize="40sp" />
+
+            <TextView
+                style="@style/Theme.GSBatt.ContentText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/temperature_unit" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="10dp"
+            android:gravity="end"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Theme.GSBatt.TitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/max" />
+
+            <TextView
+                android:id="@+id/meter_max_temp_text"
+                style="@style/Theme.GSBatt.ContentText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/default_current_mah" />
+
+            <TextView
+                style="@style/Theme.GSBatt.ContentText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/temperature_unit" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        style="@style/Theme.GSBatt.MainTitleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="@string/graph" />
+
+    <androidx.cardview.widget.CardView
+        style="@style/Theme.GSBatt.CardView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp">
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/currentTempChart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <ImageButton
+                android:id="@+id/meter_graph_reset_zoom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:background="@null"
+                android:contentDescription="@string/reset_zoom"
+                android:maxWidth="24dp"
+                android:maxHeight="24dp"
+                android:padding="14dp"
+                android:src="@drawable/ic_zoom_out" />
+
+            <RadioGroup
+                android:id="@+id/meter_radiogp"
+                android:layout_width="165dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/meter_radio_button_mah"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:minHeight="48dp"
+                    android:text="@string/mah"
+                    android:textColor="?android:textColor" />
+
+                <RadioButton
+                    android:id="@+id/meter_radio_button_temp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:minHeight="48dp"
+                    android:text="@string/temperature_unit"
+                    android:textColor="?android:textColor" />
+            </RadioGroup>
+        </FrameLayout>
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/Theme.GSBatt.MainTitleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/utilization" />
+
+    <androidx.cardview.widget.CardView
+        style="@style/Theme.GSBatt.CardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <at.grabner.circleprogress.CircleProgressView
+                android:id="@+id/circleView"
+                style="@style/Theme.GSBatt.CircleProgress"
+                android:layout_width="115dp"
+                android:layout_height="95dp"
+                android:layout_gravity="center|start"
+                android:layout_marginEnd="10dp"
+                app:cpv_autoTextSize="true"
+                app:cpv_barWidth="15dp"
+                app:cpv_blockCount="10"
+                app:cpv_blockScale="0.9"
+                app:cpv_innerContourSize="0dp"
+                app:cpv_maxValue="100"
+                app:cpv_outerContourSize="0dp"
+                app:cpv_rimWidth="15dp"
+                app:cpv_showUnit="true"
+                app:cpv_spinColor="@android:color/holo_blue_light"
+                app:cpv_textColor="#606060"
+                app:cpv_textScale="1"
+                app:cpv_unit=" %"
+                app:cpv_unitColor="#606060"
+                app:cpv_unitPosition="right_bottom"
+                app:cpv_unitScale="1"
+                app:cpv_value="0" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center|end"
+                android:baselineAligned="false"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/Theme.GSBatt.TitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/active_time" />
+
+                    <TextView
+                        android:id="@+id/home_text_on_time"
+                        style="@style/Theme.GSBatt.ContentText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/default_time" />
+
+                    <TextView
+                        style="@style/Theme.GSBatt.TitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/average_active"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/home_text_avg_on"
+                        style="@style/Theme.GSBatt.ContentText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/default_time" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/Theme.GSBatt.TitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/inactive_time"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/home_text_off_time"
+                        style="@style/Theme.GSBatt.ContentText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/default_time" />
+
+                    <TextView
+                        style="@style/Theme.GSBatt.TitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/average_inactive"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/home_text_avg_off"
+                        style="@style/Theme.GSBatt.ContentText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/default_time" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        style="@style/Theme.GSBatt.MainTitleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/expectation" />
+
+    <androidx.cardview.widget.CardView
+        style="@style/Theme.GSBatt.CardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/home_remaining_on_title"
+                    style="@style/Theme.GSBatt.TitleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/remaining_active" />
+
+                <TextView
+                    android:id="@+id/home_remaining_on"
+                    style="@style/Theme.GSBatt.ContentText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:text="@string/default_time" />
+
+                <TextView
+                    style="@style/Theme.GSBatt.TitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ends_at" />
+
+                <TextView
+                    android:id="@+id/home_time_end_on"
+                    style="@style/Theme.GSBatt.ContentText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/default_time" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/home_remaining_off_title"
+                    style="@style/Theme.GSBatt.TitleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/remaining_inactive" />
+
+                <TextView
+                    android:id="@+id/home_remaining_off"
+                    style="@style/Theme.GSBatt.ContentText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/default_time" />
+
+                <TextView
+                    style="@style/Theme.GSBatt.TitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ends_at" />
+
+                <TextView
+                    android:id="@+id/home_time_end_off"
+                    style="@style/Theme.GSBatt.ContentText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/default_time" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        style="@style/Theme.GSBatt.MainTitleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/graph" />
+
+    <androidx.cardview.widget.CardView
+        style="@style/Theme.GSBatt.CardView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/reportingChart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <ImageButton
+                android:id="@+id/home_graph_reset_zoom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:background="@null"
+                android:contentDescription="@string/reset_zoom"
+                android:maxWidth="24dp"
+                android:maxHeight="24dp"
+                android:padding="15dp"
+                android:src="@drawable/ic_zoom_out" />
+
+        </FrameLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
