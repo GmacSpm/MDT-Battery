@@ -10,7 +10,7 @@ android {
             // Enables building multiple APKs per ABI.
             enable true
             // Specifies that we do not want to also generate a universal APK that includes all ABIs.
-            universalApk false
+            universalApk true
         }
     }
 
