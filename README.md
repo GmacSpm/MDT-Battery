@@ -1,4 +1,4 @@
-# MDT-Battery
+# <img src="https://raw.githubusercontent.com/GmacSpm/MDT-Battery/main/app/src/main/res/mipmap-hdpi/ic_launcher.webp" alt="Meter page" width="30"/> MDT-Battery
 A simple Android application build using java and xml to track battery discharge time and current usage.
 <p align="center">  
   <img src="app/src/main/res/raw/image_meter.png" alt="Meter page" width="30%"/>  
