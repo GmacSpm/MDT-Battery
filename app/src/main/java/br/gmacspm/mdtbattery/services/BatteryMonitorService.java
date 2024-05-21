@@ -37,7 +37,6 @@ import br.gmacspm.mdtbattery.interfaces.ServiceCallback;
 import br.gmacspm.mdtbattery.models.UsageModel;
 import br.gmacspm.mdtbattery.room.background.BackgroundDB;
 import br.gmacspm.mdtbattery.utils.TimeConverter;
-// TODO: Testar refatoração se não quebra o aplicativo, após teste limpar códigos
 public class BatteryMonitorService extends Service {
     private BatteryMonitorService context;
     public static final int DISCONNECTED = 0;
@@ -72,35 +71,6 @@ public class BatteryMonitorService extends Service {
     public void setServiceCallback(ServiceCallback serviceCallback) {
         this.serviceCallback = serviceCallback;
     }
-
-//    public String getTimeEndOnOld() {
-//        Calendar currentTime = Calendar.getInstance();
-//        int hourNow = currentTime.get(Calendar.HOUR_OF_DAY);
-//        int minuteNow = currentTime.get(Calendar.MINUTE);
-//        long millis;
-//        String result = "--:--";
-//
-//        if (lastPlugState == DISCONNECTED) {
-//            millis = getRemainingToLong(batteryPct, getDischargeTarget(), getAvgOn());
-//        } else {
-//            millis = getRemainingToLong(batteryPct, getRechargeTarget(), getAvgOn());
-//        }
-//        currentTime.add(Calendar.HOUR_OF_DAY, TimeConverter.getHours(millis));
-//        currentTime.add(Calendar.MINUTE, TimeConverter.getMinutes(millis));
-//
-//        // Get the updated time
-//        int days = TimeConverter.getDays(millis);
-//        int hour = currentTime.get(Calendar.HOUR_OF_DAY);
-//        int minute = currentTime.get(Calendar.MINUTE);
-//
-//        if (days > 0) {
-//            result = days + ((days > 1) ? " dias" : " dia");
-//        } else if (hour != hourNow || minute != minuteNow) {
-//            result = String.format(Locale.US, "%02d:%02d", hour, minute);
-//        }
-//
-//        return result;
-//    }
 
     public String getTimeEnd(boolean isTimeEndOn) {
         Calendar currentTime = Calendar.getInstance();
@@ -161,155 +131,6 @@ public class BatteryMonitorService extends Service {
         }
         return result;
     }
-
-//    public String getTimeEndOn() {
-//        Calendar currentTime = Calendar.getInstance();
-//        int hourNow = currentTime.get(Calendar.HOUR_OF_DAY);
-//        int minuteNow = currentTime.get(Calendar.MINUTE);
-//        long millis;
-//        String result = "--:--";
-//
-//        if (lastPlugState == DISCONNECTED) {
-//            millis = getRemainingToLong(batteryPct, getDischargeTarget(), getAvgOn());
-//        } else {
-//            millis = getRemainingToLong(batteryPct, getRechargeTarget(), getAvgOn());
-//        }
-//
-//        // Add expected time to current time now
-//        currentTime.add(Calendar.DAY_OF_WEEK, TimeConverter.getDays(millis));
-//        currentTime.add(Calendar.HOUR_OF_DAY, TimeConverter.getHours(millis));
-//        currentTime.add(Calendar.MINUTE, TimeConverter.getMinutes(millis));
-//
-//        // Get the updated time
-//        int days = TimeConverter.getDays(millis);
-//        int day = currentTime.get(Calendar.DAY_OF_WEEK);
-//        int hour = currentTime.get(Calendar.HOUR_OF_DAY);
-//        int minute = currentTime.get(Calendar.MINUTE);
-//
-//        if (days > 0) {
-//            String dayOfWeek;
-//            switch (day) {
-//                case Calendar.SUNDAY:
-//                    dayOfWeek = stringSunday;
-//                    break;
-//                case Calendar.MONDAY:
-//                    dayOfWeek = stringMonday;
-//                    break;
-//                case Calendar.TUESDAY:
-//                    dayOfWeek = stringTuesday;
-//                    break;
-//                case Calendar.WEDNESDAY:
-//                    dayOfWeek = stringWednesday;
-//                    break;
-//                case Calendar.THURSDAY:
-//                    dayOfWeek = stringThursday;
-//                    break;
-//                case Calendar.FRIDAY:
-//                    dayOfWeek = stringFriday;
-//                    break;
-//                case Calendar.SATURDAY:
-//                    dayOfWeek = stringSaturday;
-//                    break;
-//                default:
-//                    dayOfWeek = "Erro";
-//                    break;
-//            }
-//            result = String.format(Locale.US, "%s, %02d:%02d", dayOfWeek, hour, minute);
-//
-//        } else if (hour != hourNow || minute != minuteNow) {
-//            result = String.format(Locale.US, "%02d:%02d", hour, minute);
-//        }
-//        return result;
-//    }
-
-
-//    public String getTimeEndOffOld() {
-//        Calendar currentTime = Calendar.getInstance();
-//        int hourNow = currentTime.get(Calendar.HOUR_OF_DAY);
-//        int minuteNow = currentTime.get(Calendar.MINUTE);
-//        long millis;
-//        String result = "--:--";
-//
-//        if (lastPlugState == DISCONNECTED) {
-//            millis = getRemainingToLong(batteryPct, getDischargeTarget(), getAvgOff());
-//        } else {
-//            millis = getRemainingToLong(batteryPct, getRechargeTarget(), getAvgOff());
-//        }
-//        currentTime.add(Calendar.HOUR_OF_DAY, TimeConverter.getHours(millis));
-//        currentTime.add(Calendar.MINUTE, TimeConverter.getMinutes(millis));
-//
-//        // Get the updated time
-//        int days = TimeConverter.getDays(millis);
-//        int hour = currentTime.get(Calendar.HOUR_OF_DAY);
-//        int minute = currentTime.get(Calendar.MINUTE);
-//
-//        if (days > 0) {
-//            result = days + ((days > 1) ? " dias" : " dia");
-//        } else if (hour != hourNow || minute != minuteNow) {
-//            result = String.format(Locale.US, "%02d:%02d", hour, minute);
-//        }
-//        return result;
-//    }
-
-//    public String getTimeEndOff() {
-//        Calendar currentTime = Calendar.getInstance();
-//        int hourNow = currentTime.get(Calendar.HOUR_OF_DAY);
-//        int minuteNow = currentTime.get(Calendar.MINUTE);
-//        long millis;
-//        String result = "--:--";
-//
-//        if (lastPlugState == DISCONNECTED) {
-//            millis = getRemainingToLong(batteryPct, getDischargeTarget(), getAvgOff());
-//        } else {
-//            millis = getRemainingToLong(batteryPct, getRechargeTarget(), getAvgOff());
-//        }
-//
-//        // Add expected time to current time now
-//        currentTime.add(Calendar.DAY_OF_WEEK, TimeConverter.getDays(millis));
-//        currentTime.add(Calendar.HOUR_OF_DAY, TimeConverter.getHours(millis));
-//        currentTime.add(Calendar.MINUTE, TimeConverter.getMinutes(millis));
-//
-//        // Get the updated time
-//        int days = TimeConverter.getDays(millis);
-//        int day = currentTime.get(Calendar.DAY_OF_WEEK);
-//        int hour = currentTime.get(Calendar.HOUR_OF_DAY);
-//        int minute = currentTime.get(Calendar.MINUTE);
-//
-//        if (days > 0) {
-//            String dayOfWeek;
-//            switch (day) {
-//                case Calendar.SUNDAY:
-//                    dayOfWeek = "Dom";
-//                    break;
-//                case Calendar.MONDAY:
-//                    dayOfWeek = "Seg";
-//                    break;
-//                case Calendar.TUESDAY:
-//                    dayOfWeek = "Ter";
-//                    break;
-//                case Calendar.WEDNESDAY:
-//                    dayOfWeek = "Qua";
-//                    break;
-//                case Calendar.THURSDAY:
-//                    dayOfWeek = "Qui";
-//                    break;
-//                case Calendar.FRIDAY:
-//                    dayOfWeek = "Sex";
-//                    break;
-//                case Calendar.SATURDAY:
-//                    dayOfWeek = "Sáb";
-//                    break;
-//                default:
-//                    dayOfWeek = "Erro";
-//                    break;
-//            }
-//            result = String.format(Locale.US, "%s, %02d:%02d", dayOfWeek, hour, minute);
-//
-//        } else if (hour != hourNow || minute != minuteNow) {
-//            result = String.format(Locale.US, "%02d:%02d", hour, minute);
-//        }
-//        return result;
-//    }
 
 
     private void startTimer() {
@@ -645,7 +466,7 @@ public class BatteryMonitorService extends Service {
 
     /**
      * @return Retorna a média de temperatura a cada 1% de bateria perdido.
-     * @method Calcula a média a cada 1% de bateria perdido, resetando a medição após uso.
+     * {@code @method} Calcula a média a cada 1% de bateria perdido, resetando a medição após uso.
      */
     private float calculateTempAverage() {
         getBatteryTemp();
@@ -661,7 +482,7 @@ public class BatteryMonitorService extends Service {
 
     /**
      * @return Retorna a média de corrente mAh a cada 1% de bateria perdido.
-     * @method Calcula a média a cada 1% de bateria perdido, resetando a medição após uso.
+     * {@code @method} Calcula a média a cada 1% de bateria perdido, resetando a medição após uso.
      */
     private int calculateMahAverage() {
         getBatteryCurrent();
@@ -712,70 +533,9 @@ public class BatteryMonitorService extends Service {
         return shortAverage;
     }
 
-    /**
-     * @return Retorna a média de tempo com a tela ativada até perder 1%, contabiliza os últimos dados recebidos com base no tamanho médio de coleta definido pelo usuário.
-     */
-//    private long getAvgOn() {
-//        long shortAverage = 0L;
-//        int breakCount = 0;
-//        for (int index = usageHistory.size() - 1; index >= 0; index--) {
-//            // Verifica se o valor atual é maior que 1 segundo && se o ativo é maior pro lado ON
-//            // se sim, adiciona o valor à média curta
-//            if ((usageHistory.get(index).timeOn > 999) &&
-//                    (usageHistory.get(index).timeOn > usageHistory.get(index).timeOff)) {
-//                breakCount = breakCount + 1;
-//                shortAverage = shortAverage +
-//                        usageHistory.get(index).timeOn;
-//            }
-//            // Verifica se é hora de parar, se tivermos adicionado a quantidade
-//            // correta de valores, interrompe o loop
-//            if (breakCount >= baseAvgSize) {
-//                break;
-//            }
-//        }
-//        // Calculamos a média
-//        shortAverage = shortAverage / ((breakCount == 0) ? 1 : breakCount);
-//        return shortAverage;
-//    }
-
-
-    /**
-     * @return Retorna a média de tempo com a tela inativa até perder 1%, contabiliza os últimos dados recebidos com base no tamanho médio de coleta definido pelo usuário.
-     */
-//    private long getAvgOff() {
-//        long shortAverage = 0L;
-//        int breakCount = 0;
-//        for (int index = usageHistory.size() - 1; index >= 0; index--) {
-//            // Verifica se o valor atual é maior que 1 segundo && se o valor é maior pro lado off
-//            // se sim, adiciona o valor à média curta
-//            if (usageHistory.get(index).timeOff > 999 &&
-//                    (usageHistory.get(index).timeOff > usageHistory.get(index).timeOn)) {
-//                breakCount = breakCount + 1;
-//                shortAverage = shortAverage +
-//                        usageHistory.get(index).timeOff;
-//            }
-//            // Verifica se é hora de parar, se tivermos adicionado a quantidade
-//            // correta de valores, interrompe o loop
-//            if (breakCount >= baseAvgSize) {
-//                break;
-//            }
-//        }
-//        // Calculamos a média
-//        shortAverage = shortAverage / ((breakCount == 0) ? 1 : breakCount);
-//        Log.d(TAG + "getAvgOn", "Média curta: " + shortAverage);
-//        return shortAverage;
-//    }
     public String getAverageString(boolean isAverageOn) {
         return TimeConverter.getHumanTime(getAverage(isAverageOn), false);
     }
-
-//    public String getAvgOnString() {
-//        return TimeConverter.getHumanTime(getAvgOn(), false);
-//    }
-//
-//    public String getAvgOffString() {
-//        return TimeConverter.getHumanTime(getAvgOff(), false);
-//    }
 
     public String getRemainingCharge(boolean isRemainingOn) {
         String result;
@@ -786,26 +546,6 @@ public class BatteryMonitorService extends Service {
         }
         return result;
     }
-
-//    public String getRemainingChargeOn() {
-//        String result;
-//        if (lastPlugState == DISCONNECTED) {
-//            result = getRemainingToString(batteryPct, getDischargeTarget(), getAvgOn());
-//        } else {
-//            result = getRemainingToString(batteryPct, getRechargeTarget(), getAvgOn());
-//        }
-//        return result;
-//    }
-//
-//    public String getRemainingChargeOff() {
-//        String result;
-//        if (lastPlugState == DISCONNECTED) {
-//            result = getRemainingToString(batteryPct, getDischargeTarget(), getAvgOff());
-//        } else {
-//            result = getRemainingToString(batteryPct, getRechargeTarget(), getAvgOff());
-//        }
-//        return result;
-//    }
 
 
     /**
@@ -903,14 +643,6 @@ public class BatteryMonitorService extends Service {
         return isScreenOnTime ? TimeConverter.getHumanTime(totalScreenOnTime, false)
                 : TimeConverter.getHumanTime(totalScreenOffTime, false);
     }
-
-//    public String getTotalScreenOnTime() {
-//        return TimeConverter.getHumanTime(totalScreenOnTime, false);
-//    }
-//
-//    public String getTotalScreenOffTime() {
-//        return TimeConverter.getHumanTime(totalScreenOffTime, false);
-//    }
 
     @Nullable
     @Override
