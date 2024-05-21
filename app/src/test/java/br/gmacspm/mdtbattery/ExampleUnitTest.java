@@ -152,7 +152,6 @@ public class ExampleUnitTest {
         }
         return rechargeTarget;
     }
-
     @Test
     public void isBatteryCorrectTarget() {
 //        assertEquals(80, getRechargeTarget(80));
