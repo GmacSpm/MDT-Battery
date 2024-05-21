@@ -19,14 +19,14 @@
     <string name="mah_multiplier">Multiplicador mAh: %.2f</string>
     <string name="general">Geral</string>
     <string name="default_dialog_edit">1.0</string>
-    <string name="average_active">Média % ativo</string>
+    <string name="average_active">Média %% ativo</string>
     <string name="ends_at">Termina em</string>
     <string name="utilization">Utilização</string>
     <string name="expectation">Expectativa</string>
     <string name="graph">Gráfico</string>
     <string name="active_time">Tempo ativo</string>
     <string name="inactive_time">Tempo inativo</string>
-    <string name="average_inactive">Média % inativo</string>
+    <string name="average_inactive">Média %% inativo</string>
     <string name="remaining_active">Restante ativo</string>
     <string name="remaining_inactive">Restante inativo</string>
     <string name="time_list">Lista de tempo</string>
