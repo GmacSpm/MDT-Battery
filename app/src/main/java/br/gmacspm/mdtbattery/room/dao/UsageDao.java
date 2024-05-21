@@ -23,13 +23,4 @@ public interface UsageDao {
     // Query que será responsável por deletar todos os tempos do banco de dados: usage_database.
     @Query("DELETE FROM usage_database")
     void deleteAllHistory();
-
-
-    @Query("SELECT EXISTS(SELECT * FROM usage_database WHERE level=:level)")
-    boolean configExists(String level);
-
-    // Deletar tempo existente no Banco De Dados.
-    @Query("DELETE FROM usage_database WHERE level=:name")
-    void deleteLevelIfExist(String name);
-
 }
