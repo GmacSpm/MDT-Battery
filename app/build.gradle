@@ -23,7 +23,6 @@ android {
     }
 
     signingConfigs {
-
         release {
             def tmpFilePath = System.getProperty("user.home") + "/work/_temp/keystore/"
             def allFilesFromDir = new File(tmpFilePath).listFiles()
