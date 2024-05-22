@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.application'
 }
-
 android {
     namespace "br.gmacspm.mdtbattery"
     compileSdk 34
