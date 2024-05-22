@@ -16,7 +16,7 @@ jobs:
 
     - name: Check if secret is set
       env:
-        KEYSTORE: ${{ secrets.RELEASE_KEYSTORE }}
+        KEYSTORE: ${{ secrets.KEYSTORE }}
 
       run: |
        if [ -z "$KEYSTORE" ]; then
