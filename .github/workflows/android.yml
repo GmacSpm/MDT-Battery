@@ -19,7 +19,7 @@ jobs:
         cache: gradle
 
     - name: Grant execute permission for gradlew
-      run: chmod +x gradlew;ls
+      run: chmod +x gradlew;echo -n $ENCODED_STRING | base64 -d > release_keystore.jks;ls;pwd
     - name: Build with Gradle
       run: ./gradlew signingReport;ls
       env:
