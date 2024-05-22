@@ -16,9 +16,13 @@ jobs:
 
     - name: Permissões de execução pro gradlew
       run: chmod +x gradlew
-    
-    - name: Criar arquivo keystore jks
-      run: echo "${{ secrets.RELEASE_KEYSTORE }}" | base64 -d > release_keystore.jks
+
+    - name: Decode Keystore
+      id: decode_keystore
+      uses: timheuer/base64-to-file@v1
+      with:
+        fileName: 'release_keystore.jks'
+        encodedString: ${{ secrets.RELEASE_KEYSTORE }}
     
     - name: Verificar tamanho do keystore
       run: ls; du release_keystore.jks
