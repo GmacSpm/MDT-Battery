@@ -10,7 +10,7 @@ jobs:
       env:
         ENCODED_STRING: ${{ secrets.RELEASE_KEYSTORE }}
       run: |
-        TMP_KEYSTORE_FILE_PATH="${RUNNER_TEMP}"/keystore
+        TMP_KEYSTORE_FILE_PATH=keystore
         mkdir "${TMP_KEYSTORE_FILE_PATH}"
         echo -n $ENCODED_STRING | base64 -d > "${TMP_KEYSTORE_FILE_PATH}"/your_keystore.jks
         echo "RELEASE_STORE_FILE="${TMP_KEYSTORE_FILE_PATH}"/your_keystore.jks" >> $GITHUB_ENV
