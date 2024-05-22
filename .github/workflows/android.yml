@@ -15,6 +15,7 @@ jobs:
         cache: gradle
 
     - name: "check is MY_SECRET exists"
+      secrets: inherit
       env: 
         super_secret: ${{ secrets.MY_SECRET }}
       if: ${{ env.super_secret == '' }}
