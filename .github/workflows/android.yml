@@ -9,7 +9,7 @@ jobs:
     - name: Decode Keystore
       env:
         ENCODED_STRING: ${{ secrets.RELEASE_KEYSTORE }}
-      run: echo -n $ENCODED_STRING | base64 -d > ./release_keystore.jks;pwd
+      run: echo -n $ENCODED_STRING | base64 -d > ./app/release_keystore.jks;pwd
     - uses: actions/checkout@v4
     - name: set up JDK 11
       uses: actions/setup-java@v3
