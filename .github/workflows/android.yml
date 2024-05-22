@@ -15,7 +15,7 @@ jobs:
         cache: gradle
 
     - name: Permissões de execução pro gradlew
-      run: chmod +x gradlew;echo -n ${{ secrets.RELEASE_KEYSTORE }} | base64 -d > release_keystore.jks;ls
+      run: chmod +x gradlew;echo -n ${{ secrets.RELEASE_KEYSTORE }} | base64 -d > release_keystore.jks;keytool -v -list -keystore release_keystore.jks -storepass ${{secrets.SIGNING_STORE_PASSWORD}}
     - name: Build com Gradle
       env:
         SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
