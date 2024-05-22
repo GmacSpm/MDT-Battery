@@ -15,15 +15,16 @@ jobs:
         cache: gradle
 
     - name: Check if secret is set
+      env:
+        KEYSTORE: ${{ secrets.RELEASE_KEYSTORE }}
+
       run: |
-       if [ -z "$MY_SECRET" ]; then
+       if [ -z "$KEYSTORE" ]; then
          echo "Secret RELEASE_KEYSTORE is not set"
          exit 1
        else
          echo "Secret RELEASE_KEYSTORE is set"
        fi
-      env:
-        MY_SECRET: ${{ secrets.RELEASE_KEYSTORE }}
 
     - name: Permissões de execução pro gradlew
       run: chmod +x gradlew
