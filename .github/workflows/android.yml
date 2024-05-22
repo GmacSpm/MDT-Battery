@@ -21,7 +21,7 @@ jobs:
 	  run: echo -n ${{ secrets.RELEASE_KEYSTORE }} | base64 -d > release_keystore.jks
 
 	- name: Verificar tamanho do keystore
-	  run: du .
+	  run: ls; du
 
 	- name: Testar keystore
 	  run: keytool -v -list -keystore release_keystore.jks -storepass '${{ secrets.SIGNING_STORE_PASSWORD }}'
