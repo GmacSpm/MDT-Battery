@@ -10,7 +10,7 @@ jobs:
       env:
         ENCODED_STRING: ${{ secrets.RELEASE_KEYSTORE }}
       run: |
-        echo -n $ENCODED_STRING | base64 -d > your_keystore.jks
+        echo -n $ENCODED_STRING | base64 -d > ./your_keystore.jks
         echo "RELEASE_STORE_FILE=your_keystore.jks" >> $GITHUB_ENV
     - uses: actions/checkout@v4
     - name: set up JDK 11
