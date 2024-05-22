@@ -16,15 +16,15 @@ jobs:
 
     - name: Permissões de execução pro gradlew
       run: chmod +x gradlew
-
-	- name: Criar arquivo keystore jks
-	  run: echo -n ${{ secrets.RELEASE_KEYSTORE }} | base64 -d > release_keystore.jks
-
-	- name: Verificar tamanho do keystore
-	  run: ls; du
-
-	- name: Testar keystore
-	  run: keytool -v -list -keystore release_keystore.jks -storepass '${{ secrets.SIGNING_STORE_PASSWORD }}'
+    
+    - name: Criar arquivo keystore jks
+      run: echo -n ${{ secrets.RELEASE_KEYSTORE }} | base64 -d > release_keystore.jks
+    
+    - name: Verificar tamanho do keystore
+      run: ls; du
+    
+    - name: Testar keystore
+      run: keytool -v -list -keystore release_keystore.jks -storepass '${{ secrets.SIGNING_STORE_PASSWORD }}'
 
     - name: Build com Gradle
       env:
