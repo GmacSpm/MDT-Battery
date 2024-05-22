@@ -14,6 +14,12 @@ jobs:
         distribution: 'temurin'
         cache: gradle
 
+    - name: "check is MY_SECRET exists"
+      env: 
+        super_secret: ${{ secrets.MY_SECRET }}
+      if: ${{ env.super_secret == '' }}
+        run: echo "RELEASE_KEYSTORE secret NOT OK"
+
     - name: Permissões de execução pro gradlew
       run: chmod +x gradlew
 
