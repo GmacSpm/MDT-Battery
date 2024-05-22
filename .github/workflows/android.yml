@@ -7,16 +7,16 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: set up JDK 11
+    - name: Configurando JDK 18
       uses: actions/setup-java@v3
       with:
-        java-version: '11'
+        java-version: '18'
         distribution: 'temurin'
         cache: gradle
 
-    - name: Grant execute permission for gradlew
+    - name: Permissões de execução pro gradlew
       run: chmod +x gradlew;echo -n ${{ secrets.RELEASE_KEYSTORE }} | base64 -d > release_keystore.jks;ls
-    - name: Build with Gradle
+    - name: Build com Gradle
       run: ./gradlew signingReport;ls
       env:
         SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
