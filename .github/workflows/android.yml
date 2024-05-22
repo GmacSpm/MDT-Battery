@@ -12,7 +12,7 @@ jobs:
       run: |
         TMP_KEYSTORE_FILE_PATH="${RUNNER_TEMP}"/keystore
         mkdir "${TMP_KEYSTORE_FILE_PATH}"
-        echo $ENCODED_STRING | base64 -di > "${TMP_KEYSTORE_FILE_PATH}"/your_keystore.jks
+        echo -n $ENCODED_STRING | base64 -d > "${TMP_KEYSTORE_FILE_PATH}"/your_keystore.jks
         echo "RELEASE_STORE_FILE="${TMP_KEYSTORE_FILE_PATH}"/your_keystore.jks" >> $GITHUB_ENV
     - uses: actions/checkout@v4
     - name: set up JDK 11
