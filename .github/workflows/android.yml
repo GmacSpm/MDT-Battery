@@ -21,8 +21,9 @@ jobs:
       id: decode_keystore
       uses: timheuer/base64-to-file@v1
       with:
+        encoded_string: ${{ secrets.RELEASE_KEYSTORE }}
         fileName: 'release_keystore.jks'
-        encodedString: ${{ secrets.RELEASE_KEYSTORE }}
+        encodedString: encoded_string
     
     - name: Verificar tamanho do keystore
       run: ls; du release_keystore.jks
