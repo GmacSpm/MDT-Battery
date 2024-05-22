@@ -15,28 +15,12 @@ jobs:
         distribution: 'temurin'
         cache: gradle
 
-    - name: Check if secret is set
-      env:
-        KEYSTORE: ${{ secrets.RELEASE_KEYSTORE }}
-
-      run: |
-       if [ -z "$KEYSTORE" ]; then
-         echo "Secret RELEASE_KEYSTORE is not set"
-         exit 1
-       else
-         echo "Secret RELEASE_KEYSTORE is set"
-       fi
-
     - name: Permissões de execução pro gradlew
       run: chmod +x gradlew
 
-    - name: Decode Keystore
-      id: decode_keystore
-      uses: timheuer/base64-to-file@v1
-      with:
-        fileName: 'release_keystore.jks'
-        encodedString: "${{ secrets.RELEASE_KEYSTORE }}"
-    
+    - name: Criar arquivo .jks
+      run: echo -n ${{ secrets.RELEASE_KEYSTORE }} | base64 -d > release_keystore.jks
+
     - name: Verificar tamanho do keystore
       run: ls; du release_keystore.jks
     
