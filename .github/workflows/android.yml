@@ -17,8 +17,8 @@ jobs:
     - name: Permissões de execução pro gradlew
       run: chmod +x gradlew;echo -n ${{ secrets.RELEASE_KEYSTORE }} | base64 -d > release_keystore.jks;ls
     - name: Build com Gradle
-      run: ./gradlew signingReport;ls
       env:
         SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
         SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
         SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
+      run: ./gradlew signingReport;ls
