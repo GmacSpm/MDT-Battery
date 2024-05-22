@@ -12,6 +12,7 @@ jobs:
       run: |
         echo -n $ENCODED_STRING | base64 -d > ./your_keystore.jks
         echo "RELEASE_STORE_FILE=your_keystore.jks" >> $GITHUB_ENV
+        ls
     - uses: actions/checkout@v4
     - name: set up JDK 11
       uses: actions/setup-java@v3
