@@ -2,7 +2,6 @@ name: Android CI
 on: workflow_dispatch
 jobs:
  build:
-
     runs-on: ubuntu-latest
     environment: main-environment
 
@@ -21,15 +20,9 @@ jobs:
     - name: Criar arquivo .jks
       run: echo -n ${{ secrets.RELEASE_KEYSTORE }} | base64 -d > release_keystore.jks
 
-    - name: Verificar tamanho do keystore
-      run: ls; du release_keystore.jks
-    
-    - name: Testar keystore
-      run: keytool -v -list -keystore release_keystore.jks -storepass '${{ secrets.SIGNING_STORE_PASSWORD }}'
-
     - name: Build com Gradle
       env:
         SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
         SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
         SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
-      run: ./gradlew signingReport
+      run: ./gradlew assembleRelease
