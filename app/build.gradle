@@ -8,7 +8,7 @@ android {
     splits {
         abi {
             // Enables building multiple APKs per ABI.
-            enable true
+            enable false
             // Specifies that we do not want to also generate a universal APK that includes all ABIs.
             universalApk true
         }
