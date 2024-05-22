@@ -2,23 +2,27 @@ name: Android CI
 on: workflow_dispatch
 jobs:
  build:
-
     runs-on: ubuntu-latest
+    environment: main-environment
 
     steps:
     - uses: actions/checkout@v4
-    - name: set up JDK 11
+    - name: Configurando JDK 18
       uses: actions/setup-java@v3
       with:
-        java-version: '11'
+        java-version: '18'
         distribution: 'temurin'
         cache: gradle
 
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew;echo -n ${{ secrets.RELEASE_KEYSTORE }} | base64 -d > release_keystore.jks;ls
-    - name: Build with Gradle
-      run: ./gradlew signingReport;ls
+    - name: Permissões de execução pro gradlew
+      run: chmod +x gradlew
+
+    - name: Criar arquivo .jks
+      run: echo -n ${{ secrets.RELEASE_KEYSTORE }} | base64 -d > release_keystore.jks
+
+    - name: Build com Gradle
       env:
         SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
         SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
         SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
+      run: ./gradlew assembleRelease
