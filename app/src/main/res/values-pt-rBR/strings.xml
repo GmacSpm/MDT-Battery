@@ -7,7 +7,7 @@
     <string name="reset">Resetar</string>
     <string name="default_time">--:--</string>
     <string name="max_charge">Carregamento máximo: %s</string>
-    <string name="min_charge">Minimo de carga: %s</string>
+    <string name="min_charge">Mínimo de carga: %s</string>
     <string name="battery_exception">Exceção de bateria: %s</string>
     <string name="execute_boot">Executar no boot</string>
     <string name="vibrate_change">Vibrar por descarga</string>
@@ -51,7 +51,7 @@
     <string name="dialog_average_base_on">Base de cálculo da média</string>
     <string name="dialog_mah_collection_time">Tempo de coleta de mAh</string>
     <string name="dialog_maximum_charge">Máximo de carga</string>
-    <string name="dialog_minimum_charge">Carregamento minimo</string>
+    <string name="dialog_minimum_charge">Carregamento mínimo</string>
     <string name="dialog_mah_multiplier">Multiplicador de mAh</string>
     <string name="dialog_mah_multiplier_set">Ajustar multiplicador para %.2f?</string>
     <string name="capacidade_da_bateria">Capacidade da bateria: %.1f</string>
