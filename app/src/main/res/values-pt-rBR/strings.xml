@@ -68,4 +68,6 @@
     <string name="day_thursday">Qui</string>
     <string name="day_friday">Sex</string>
     <string name="day_saturday">Sáb</string>
+    <string name="dialog_cancel">Cancelar</string>
+    <string name="dialog_apply">Aplicar</string>
 </resources>

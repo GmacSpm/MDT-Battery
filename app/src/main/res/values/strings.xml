@@ -72,4 +72,6 @@
     <string name="day_thursday">Thu</string>
     <string name="day_friday">Fri</string>
     <string name="day_saturday">Sat</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="dialog_apply">Apply</string>
 </resources>

@@ -52,7 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="0dp"
-                android:text="Cancelar"
+                android:text="@string/dialog_cancel"
                 android:textColor="?attr/colorPrimary" />
 
             <Button
@@ -63,7 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="0dp"
-                android:text="Aplicar"
+                android:text="@string/dialog_apply"
                 android:textColor="?attr/colorPrimary" />
 
         </LinearLayout>
