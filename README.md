@@ -10,6 +10,7 @@ A simple Android application build using java and xml to track battery discharge
 ## Used third-party libraries
 
 - Circle Progress View -> MIT License -> [Circle-Progress-View](https://github.com/jakob-grabner/Circle-Progress-View?tab=MIT-1-ov-file)
+- MP Android Chart -> Apache License 2.0 -> [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart?tab=License-1-ov-file)
 
 # License
 This project is licensed under the [MIT license](https://opensource.org/license/mit).
