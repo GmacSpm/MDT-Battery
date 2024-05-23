@@ -1,5 +1,5 @@
 # <img src="https://raw.githubusercontent.com/GmacSpm/MDT-Battery/main/app/src/main/res/mipmap-hdpi/ic_launcher.webp" alt="Meter page" width="30"/> MDT-Battery
-A simple Android application build using java and xml to track battery discharge time and current usage.
+The MDT Battery app provides detailed insights into your device's battery usage and performance. It continuously monitors and records metrics like current (mAh), temperature, and usage patterns, offering a comprehensive overview of battery health. The app features graphical data displays, alerts, and predictions.
 <p align="center">  
   <img src="app/src/main/res/raw/image_meter.png" alt="Meter page" width="30%"/>  
   <img src="app/src/main/res/raw/image_general.png" alt="General page" width="30%"/>  
