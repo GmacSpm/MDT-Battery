@@ -4,15 +4,7 @@ plugins {
 android {
     namespace "br.gmacspm.mdtbattery"
     compileSdk 34
-    splits {
-        abi {
-            // Enables building multiple APKs per ABI.
-            enable false
-            // Specifies that we do not want to also generate a universal APK that includes all ABIs.
-            universalApk true
-        }
-    }
-
+    
     defaultConfig {
         applicationId "br.gmacspm.mdtbattery"
         minSdk 21
