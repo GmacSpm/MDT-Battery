@@ -2,7 +2,6 @@ package br.gmacspm.mdtbattery.activities;
 
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
@@ -12,21 +11,19 @@ import android.os.Looper;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import br.gmacspm.mdtbattery.R;
 import br.gmacspm.mdtbattery.constants.ServiceConstants;
+import br.gmacspm.mdtbattery.dialog.CustomDialog;
 import br.gmacspm.mdtbattery.interfaces.ServiceCallback;
 import br.gmacspm.mdtbattery.models.TimeModel;
 import br.gmacspm.mdtbattery.services.BatteryMonitorService;
@@ -45,11 +42,12 @@ public class MainActivity extends AppCompatActivity implements ServiceCallback {
     private BottomNavigationView bottomNavigationView;
 
     // Strings from R.string
-    private String dialogTitle, dialogMessage, yes, no;
+    private String dialogMessage;
+    private String yes;
+    private String no;
     private String titleMeter, titleMain, titleList;
 
     private void getStrings() {
-        dialogTitle = getString(R.string.dialog_reset_title);
         dialogMessage = getString(R.string.dialog_reset_message);
         yes = getString(R.string.yes);
         no = getString(R.string.no);
@@ -176,23 +174,13 @@ public class MainActivity extends AppCompatActivity implements ServiceCallback {
             return true;
         }
         if (id == R.id.action_reset) {
-            MaterialAlertDialogBuilder materialDialog = new MaterialAlertDialogBuilder(MainActivity.this, R.style.MaterialAlertDialog_rounded)
-                    .setTitle(dialogTitle)
-                    .setMessage(dialogMessage)
-                    .setPositiveButton(yes, (dialog, which) ->
-                            batteryMonitorService.resetMonitoring()
-                    )
-                    .setNegativeButton(no, null);
-            AlertDialog alertDialog = materialDialog.create();
-            alertDialog.show();
-
-            Button positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
-            Button negativeButton = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
-
-            if (positiveButton != null && negativeButton != null) {
-                positiveButton.setTextColor(getResources().getColor(R.color.purple_500));
-                negativeButton.setTextColor(getResources().getColor(R.color.purple_500));
-            }
+            CustomDialog customDialog = new CustomDialog(MainActivity.this, dialogMessage);
+            customDialog.setPositiveWord(yes);
+            customDialog.setNegativeWord(no);
+            customDialog.setListener(result ->
+                    batteryMonitorService.resetMonitoring()
+            );
+            customDialog.show();
         }
 
         return super.onOptionsItemSelected(item);
