@@ -26,6 +26,14 @@ public class CustomDialog extends Dialog {
         this.listener = listener;
     }
 
+    public void setPositiveWord(String positive) {
+        ((TextView) findViewById(R.id.dialog_button_apply)).setText(positive);
+    }
+
+    public void setNegativeWord(String negative){
+        ((TextView) findViewById(R.id.dialog_button_cancel)).setText(negative);
+    }
+
     public CustomDialog(@NonNull Context context, String title, String hint) {
         super(context);
         Window window = this.getWindow();
@@ -88,4 +96,30 @@ public class CustomDialog extends Dialog {
         Button buttonDeny = findViewById(R.id.dialog_button_cancel);
         buttonDeny.setOnClickListener(v -> dismiss());
     }
+
+    public CustomDialog(Context context, String title) {
+        super(context);
+        Window window = this.getWindow();
+        if (window != null) {
+            this.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.dialog_custom);
+
+        TextView textTitle = findViewById(R.id.dialog_text_title);
+        textTitle.setText(title);
+
+        EditText editContent = findViewById(R.id.dialog_edit);
+        editContent.setVisibility(View.GONE);
+
+        Button buttonApply = findViewById(R.id.dialog_button_apply);
+        buttonApply.setOnClickListener(v -> {
+            listener.done(0);
+            dismiss();
+        });
+
+        Button buttonDeny = findViewById(R.id.dialog_button_cancel);
+        buttonDeny.setOnClickListener(v -> dismiss());
+    }
+
 }
