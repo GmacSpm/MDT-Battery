@@ -1,6 +1,7 @@
 package br.gmacspm.mdtbattery.activities;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -37,6 +38,9 @@ public class SettingsActivity extends AppCompatActivity {
         SwitchCompat switchPersist = findViewById(R.id.settings_switch_persist);
         Button buttonMahMult = findViewById(R.id.settings_button_mah_x);
         Button buttonCapacity = findViewById(R.id.settings_button_battery_mah);
+
+        Button buttonCirclePV = findViewById(R.id.settings_boot_cpv);
+        Button buttonMPC = findViewById(R.id.settings_button_mpac);
 
         switchBoot.setChecked(settings.getStartBoot());
         switchBoot.setOnCheckedChangeListener((buttonView, isChecked) ->
@@ -146,6 +150,22 @@ public class SettingsActivity extends AppCompatActivity {
             });
             customDialog.show();
         });
+
+        buttonCirclePV.setOnClickListener(v ->
+                showLicenseDialog("CircleProgressView", "https://github.com/jakob-grabner/Circle-Progress-View?tab=MIT-1-ov-file")
+        );
+        buttonMPC.setOnClickListener(v ->
+                showLicenseDialog("MPAndroidChart", "https://github.com/PhilJay/MPAndroidChart?tab=License-1-ov-file")
+        );
+    }
+
+    private void showLicenseDialog(String name, String link) {
+        CustomDialog customDialog = new CustomDialog(context, String.format(getString(R.string.dialog_open_license), name));
+        customDialog.setListener(result -> startActivity(new Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse(link)
+        )));
+        customDialog.show();
     }
 
     @Override
