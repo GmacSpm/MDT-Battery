@@ -18,7 +18,7 @@
     <string name="mah_multiplier">mAh Multiplier: %.2f</string>
     <string name="general">General</string>
     <string name="default_dialog_edit">1.0</string>
-    <string name="average_active">Average &#37; active</string>
+    <string name="average_active">Average &#x029D6; active</string>
     <string name="ends_at">Ends at</string>
     <string name="utilization">Utilization</string>
     <string name="expectation">Expectation</string>
@@ -26,7 +26,7 @@
 
     <string name="active_time">Active time</string>
     <string name="inactive_time">Inactive time</string>
-    <string name="average_inactive">Average &#37; inactive</string>
+    <string name="average_inactive">Average &#x029D7; inactive</string>
     <string name="remaining_active">Remaining active</string>
     <string name="remaining_inactive">Remaining inactive</string>
     <string name="time_list">Time list</string>
