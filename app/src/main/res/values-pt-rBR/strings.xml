@@ -36,9 +36,9 @@
     <string name="max">Máx.</string>
     <string name="actual">Atual</string>
     <string name="notification_average_on">Média on</string>
-    <string name="notification_target_on">Até %d on</string>
+    <string name="notification_target_on">Até %d</string>
     <string name="notification_avg_off">Média off</string>
-    <string name="notification_target_off">Até %d off</string>
+    <string name="notification_target_off">Até %d</string>
     <string name="bottom_nav_general">Uso</string>
     <string name="bottom_nav_list">Lista</string>
     <string name="bottom_nav_meter">Mah</string>

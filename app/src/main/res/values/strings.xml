@@ -40,9 +40,9 @@
     <string name="temperature_unit" translatable="false">°C</string>
     <string name="sample_item_discharge" translatable="false">80%</string>
     <string name="notification_average_on">Avg on</string>
-    <string name="notification_target_on">Until %d on</string>
+    <string name="notification_target_on">Until %d</string>
     <string name="notification_avg_off">Avg off</string>
-    <string name="notification_target_off">Until %d off</string>
+    <string name="notification_target_off">Until %d</string>
     <string name="bottom_nav_meter">Mah</string>
     <string name="bottom_nav_general">Use</string>
     <string name="bottom_nav_list">List</string>
