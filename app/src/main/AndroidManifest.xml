@@ -39,7 +39,7 @@
         <service
             android:name="br.gmacspm.mdtbattery.services.BatteryMonitorService"
             android:foregroundServiceType="specialUse"
-            android:label="Bateria" />
+            android:label="@string/battery_service" />
 
         <receiver
             android:name="br.gmacspm.mdtbattery.StartOnBoot"

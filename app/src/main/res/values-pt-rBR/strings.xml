@@ -75,4 +75,5 @@
     <string name="about">Sobre</string>
     <string name="dialog_open_license">Deseja abrir licença: \n%s?</string>
     <string name="dialog_open_text">Abrir</string>
+    <string name="battery_service">Serviço de bateria</string>
 </resources>

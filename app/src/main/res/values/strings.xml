@@ -79,4 +79,5 @@
     <string name="about">About</string>
     <string name="dialog_open_license">Open license for: \n%s?</string>
     <string name="dialog_open_text">Open</string>
+    <string name="battery_service">Battery service</string>
 </resources>
