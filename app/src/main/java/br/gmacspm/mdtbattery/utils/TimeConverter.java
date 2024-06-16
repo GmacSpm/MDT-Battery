@@ -21,14 +21,14 @@ public class TimeConverter {
                             TimeUnit.DAYS.toHours(TimeUnit.MILLISECONDS.toDays(millis))));
         }
         // Se for maior que ou igual a 1 hora (60min) e menor que 1 dia (24h)
-        else if (millis >= ONE_HOUR && millis < ONE_DAY) {
+        else if (millis >= ONE_HOUR) {
             humanTime = String.format(Locale.US, "%02dh%02dm",
                     TimeUnit.MILLISECONDS.toHours(millis),
                     (TimeUnit.MILLISECONDS.toMinutes(millis) -
                             TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis))));
         }
         // Se for maior que ou igual a 1s (1000ms) e menor que 1 hora (60min)
-        else if (millis >= ONE_SECOND && millis < ONE_HOUR) {
+        else if (millis >= ONE_SECOND) {
             humanTime = String.format(Locale.US, "%02dm%02ds",
                     TimeUnit.MILLISECONDS.toMinutes(millis),
                     (TimeUnit.MILLISECONDS.toSeconds(millis) -
