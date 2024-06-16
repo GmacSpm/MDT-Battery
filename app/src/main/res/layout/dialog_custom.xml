@@ -19,12 +19,12 @@
             <TextView
                 android:id="@+id/dialog_text_title"
                 style="@style/Theme.GSBatt.TitleText"
-                android:textSize="18sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
-                android:layout_marginEnd="10dp" />
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/dialog_edit"
@@ -45,26 +45,28 @@
             android:orientation="horizontal">
 
             <Button
-                android:textSize="13sp"
-                android:textAllCaps="false"
-                android:background="?android:selectableItemBackground"
                 android:id="@+id/dialog_button_cancel"
+                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="?android:selectableItemBackground"
                 android:padding="0dp"
                 android:text="@string/dialog_cancel"
-                android:textColor="?attr/colorPrimary" />
+                android:textAllCaps="false"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="13sp" />
 
             <Button
-                android:textSize="13sp"
-                android:textAllCaps="false"
-                android:background="?android:selectableItemBackground"
                 android:id="@+id/dialog_button_apply"
+                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="?android:selectableItemBackground"
                 android:padding="0dp"
                 android:text="@string/dialog_apply"
-                android:textColor="?attr/colorPrimary" />
+                android:textAllCaps="false"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="13sp" />
 
         </LinearLayout>
     </LinearLayout>
