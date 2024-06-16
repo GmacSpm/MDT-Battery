@@ -78,4 +78,7 @@
     <string name="dialog_open_license">Open license for: \n%s?</string>
     <string name="dialog_open_text">Open</string>
     <string name="battery_service">Battery service</string>
+    <string name="circle_progress_view" translatable="false">Circle Progress View</string>
+    <string name="mp_android_chart" translatable="false">MP Android Chart</string>
+    <string name="marker_sample" translatable="false">400</string>
 </resources>
