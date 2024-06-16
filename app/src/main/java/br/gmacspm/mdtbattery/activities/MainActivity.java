@@ -33,7 +33,7 @@ import br.gmacspm.mdtbattery.ui.pages.MeterPage;
 import br.gmacspm.mdtbattery.viewmodel.DataViewModel;
 
 public class MainActivity extends AppCompatActivity implements ServiceCallback {
-    private static final String SELECTED_ITEM_ID = "selected_item_id";
+    private final String SELECTED_ITEM_ID = "selected_item_id";
     private BatteryMonitorService batteryMonitorService;
     private boolean isBound = false;
     private int lastClickedId;

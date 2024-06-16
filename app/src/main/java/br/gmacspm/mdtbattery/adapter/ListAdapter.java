@@ -18,7 +18,6 @@ import br.gmacspm.mdtbattery.utils.ThemeColors;
 
 public class ListAdapter extends ArrayAdapter<DischargeModel> {
     private final Context context;
-
     private static class ViewHolder {
         TextView txtLevel;
         TextView txtON;
@@ -28,9 +27,7 @@ public class ListAdapter extends ArrayAdapter<DischargeModel> {
 
     public ListAdapter(ArrayList<DischargeModel> data, Context context) {
         super(context, R.layout.item_discharge_list, data);
-
         this.context = context;
-        //this.textColor = textColor;
     }
 
     @NonNull
