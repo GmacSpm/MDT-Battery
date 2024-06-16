@@ -22,6 +22,9 @@ import br.gmacspm.mdtbattery.utils.TimeConverter;
 public class ExampleUnitTest {
     @Test
     public void isTimeConvertOK(){
+        assertEquals("00m00s", TimeConverter.getHumanTime(0, true));
+        assertEquals("--:--", TimeConverter.getHumanTime(0, false));
+
         assertEquals("00m01s", TimeConverter.getHumanTime(1000, false));
         assertEquals("00m59s", TimeConverter.getHumanTime(59999, false));
 
