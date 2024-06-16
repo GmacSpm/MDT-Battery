@@ -63,7 +63,6 @@
     <string name="action_bar_meter">Meter</string>
     <string name="action_bar_general">General</string>
     <string name="action_bar_list">List</string>
-    <string name="dialog_reset_title">Reset?</string>
     <string name="dialog_reset_message">Would you like to reset all data?</string>
     <string name="day_sunday">Sun</string>
     <string name="day_monday">Mon</string>
@@ -74,7 +73,6 @@
     <string name="day_saturday">Sat</string>
     <string name="dialog_cancel">Cancel</string>
     <string name="dialog_apply">Apply</string>
-    <string name="licenses">Licenses</string>
     <string name="version">Version: 1.0.0</string>
     <string name="about">About</string>
     <string name="dialog_open_license">Open license for: \n%s?</string>

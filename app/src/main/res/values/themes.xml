@@ -104,29 +104,13 @@
         <item name="android:textColor">?android:textColor</item>
         <item name="android:textSize">14sp</item>
     </style>
-
-    <!--  AppBar ajusts  -->
-    <style name="Theme.GSBatt.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="Theme.GSBatt.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
+    
     <!--  CustomProgressBar blue and gray  -->
     <style name="CustomProgressBar" parent="android:Widget.ProgressBar.Horizontal">
         <item name="android:indeterminateOnly">false</item>
         <item name="android:progressDrawable">@drawable/drw_horizontal_progressbar</item>
         <item name="android:minHeight">10dip</item>
         <item name="android:maxHeight">20dip</item>
-    </style>
-
-
-    <style name="MaterialAlertDialog_rounded" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">16dp</item>
-    </style>
-
-    <style name="DialogCorners" parent="">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">16dp</item>
     </style>
 
 </resources>

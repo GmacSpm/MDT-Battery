@@ -59,7 +59,6 @@
     <string name="action_bar_meter">Medir</string>
     <string name="action_bar_general">Geral</string>
     <string name="action_bar_list">Lista</string>
-    <string name="dialog_reset_title">Resetar?</string>
     <string name="dialog_reset_message">Deseja resetar todas as medições?</string>
     <string name="day_sunday">Dom</string>
     <string name="day_monday">Seg</string>
@@ -70,7 +69,6 @@
     <string name="day_saturday">Sáb</string>
     <string name="dialog_cancel">Cancelar</string>
     <string name="dialog_apply">Aplicar</string>
-    <string name="licenses">Licenças</string>
     <string name="version">Versão: 1.0.0</string>
     <string name="about">Sobre</string>
     <string name="dialog_open_license">Deseja abrir licença: \n%s?</string>
