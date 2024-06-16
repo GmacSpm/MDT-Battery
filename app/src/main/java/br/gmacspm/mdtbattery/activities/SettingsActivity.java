@@ -152,15 +152,21 @@ public class SettingsActivity extends AppCompatActivity {
         });
 
         buttonCirclePV.setOnClickListener(v ->
-                showLicenseDialog("CircleProgressView", "https://github.com/jakob-grabner/Circle-Progress-View?tab=MIT-1-ov-file")
+                showLicenseDialog("CircleProgressView",
+                        "https://github.com/jakob-grabner/Circle-Progress-View?tab=MIT-1-ov-file"
+                )
         );
         buttonMPC.setOnClickListener(v ->
-                showLicenseDialog("MPAndroidChart", "https://github.com/PhilJay/MPAndroidChart?tab=License-1-ov-file")
+                showLicenseDialog("MPAndroidChart",
+                        "https://github.com/PhilJay/MPAndroidChart?tab=License-1-ov-file"
+                )
         );
     }
 
     private void showLicenseDialog(String name, String link) {
         CustomDialog customDialog = new CustomDialog(context, String.format(getString(R.string.dialog_open_license), name));
+        customDialog.setPositiveWord(getString(R.string.dialog_open_text));
+        customDialog.setNegativeWord(getString(R.string.dialog_cancel));
         customDialog.setListener(result -> startActivity(new Intent(
                 Intent.ACTION_VIEW,
                 Uri.parse(link)

@@ -74,4 +74,5 @@
     <string name="version">Versão: 1.0.0</string>
     <string name="about">Sobre</string>
     <string name="dialog_open_license">Deseja abrir licença: \n%s?</string>
+    <string name="dialog_open_text">Abrir</string>
 </resources>
