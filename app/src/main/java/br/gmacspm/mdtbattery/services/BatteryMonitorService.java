@@ -37,6 +37,7 @@ import br.gmacspm.mdtbattery.interfaces.ServiceCallback;
 import br.gmacspm.mdtbattery.models.UsageModel;
 import br.gmacspm.mdtbattery.room.background.BackgroundDB;
 import br.gmacspm.mdtbattery.utils.TimeConverter;
+
 public class BatteryMonitorService extends Service {
     private BatteryMonitorService context;
     public static final int DISCONNECTED = 0;
@@ -437,10 +438,11 @@ public class BatteryMonitorService extends Service {
         }
     };
 
-    public static void vibrateThreeTimes(Context context) {
+    public static void vibrateFourTimes(Context context) {
         Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
         if (vibrator != null) {
-            long[] pattern = {300, 400, 300, 400, 300, 400, 300, 400}; // vibration pattern (wait 0ms, vibrate for 1000ms, wait 500ms, vibrate for 1000ms, wait 500ms, vibrate for 1000ms)
+            long[] pattern = {1000, 500, 1000, 500, 1000, 500, 1000, 500};
+            // vibration pattern (wait 1000ms, vibrate for 500ms, wait 1000ms...)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 // For Android 8.0 and above (API level 26+)
                 vibrator.vibrate(VibrationEffect.createWaveform(pattern, -1)); // -1 indicates no repeat
@@ -457,10 +459,10 @@ public class BatteryMonitorService extends Service {
     private void vibrateOnReach() {
         if (batteryPct >= rechargeTarget && batteryPct < rechargeTarget + 2 &&
                 isCharging()) {
-            vibrateThreeTimes(this);
+            vibrateFourTimes(this);
         } else if (batteryPct <= dischargeTarget && batteryPct > dischargeTarget - 2 &&
                 !isCharging()) {
-            vibrateThreeTimes(this);
+            vibrateFourTimes(this);
         }
     }
 
