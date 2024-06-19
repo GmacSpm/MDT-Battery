@@ -18,7 +18,7 @@
 
             <TextView
                 android:id="@+id/dialog_text_title"
-                style="@style/Theme.GSBatt.TitleText"
+                style="@style/Theme.GSBatt.DialogTitleText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
