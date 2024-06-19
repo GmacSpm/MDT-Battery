@@ -17,6 +17,7 @@ import android.os.PowerManager;
 import android.os.SystemClock;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
+import android.os.VibratorManager;
 import android.util.Log;
 import android.widget.RemoteViews;
 
@@ -328,12 +329,20 @@ public class BatteryMonitorService extends Service {
 
     }
 
+    // -Xlint bug shows a deprecation here even if it seems to be OK...
     private void vibrateOnChange() {
         if (isVibrateOnChange && !isCharging()) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE));
+            if (Build.VERSION.SDK_INT >= 31) { // Android 12
+                VibratorManager vibratorManager = (VibratorManager) context.getSystemService(Context.VIBRATOR_MANAGER_SERVICE);
+                Vibrator vibrator = vibratorManager.getDefaultVibrator();
+                vibrator.vibrate(VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE));
             } else {
-                ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(50);
+                Vibrator vibrator = (Vibrator) context.getSystemService(VIBRATOR_SERVICE);
+                if (Build.VERSION.SDK_INT >= 26) { // Android 8
+                    vibrator.vibrate(VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE));
+                } else {
+                    vibrator.vibrate(50);
+                }
             }
         }
     }
@@ -438,17 +447,22 @@ public class BatteryMonitorService extends Service {
         }
     };
 
+    // -Xlint bug shows a deprecation here even if it seems to be OK...
     public static void vibrateFourTimes(Context context) {
-        Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
-        if (vibrator != null) {
-            long[] pattern = {1000, 500, 1000, 500, 1000, 500, 1000, 500};
-            // vibration pattern (wait 1000ms, vibrate for 500ms, wait 1000ms...)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                // For Android 8.0 and above (API level 26+)
-                vibrator.vibrate(VibrationEffect.createWaveform(pattern, -1)); // -1 indicates no repeat
-            } else {
-                // For devices below Android 8.0
-                vibrator.vibrate(pattern, -1); // same vibration pattern as above
+        long[] pattern = {1000, 500, 1000, 500, 1000, 500, 1000, 500};
+        if (Build.VERSION.SDK_INT >= 31) { // Android 12 and above
+            VibratorManager vibratorManager = (VibratorManager) context.getSystemService(Context.VIBRATOR_MANAGER_SERVICE);
+            Vibrator vibrator = vibratorManager.getDefaultVibrator();
+            vibrator.vibrate(VibrationEffect.createWaveform(pattern, VibrationEffect.DEFAULT_AMPLITUDE));
+        } else {
+            Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+            if (vibrator != null) {
+                // vibration pattern (wait 1000ms, vibrate for 500ms, wait 1000ms...)
+                if (Build.VERSION.SDK_INT >= 26) { // For Android 8.0 and above (API level 26+)
+                    vibrator.vibrate(VibrationEffect.createWaveform(pattern, -1)); // -1 indicates no repeat
+                } else { // For devices below Android 8.0
+                    vibrator.vibrate(pattern, -1);
+                }
             }
         }
     }
