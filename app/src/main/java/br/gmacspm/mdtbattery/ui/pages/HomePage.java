@@ -80,13 +80,8 @@ public class HomePage extends Fragment {
         });
 
         viewModel.getIsCharging().observe(getViewLifecycleOwner(), (Observer<? super Boolean>) isCharging -> {
-            if (isCharging) {
-                textRemainingOnTitle.setText(strChargeActive);
-                textRemainingOffTitle.setText(strChargeInactive);
-            } else {
-                textRemainingOnTitle.setText(strRemainActive);
-                textRemainingOffTitle.setText(strRemainInactive);
-            }
+            textRemainingOnTitle.setText(isCharging ? strChargeActive : strRemainActive);
+            textRemainingOffTitle.setText(isCharging ? strChargeInactive : strRemainInactive);
         });
 
         return inflater.inflate(R.layout.fragment_home, container, false);
@@ -114,12 +109,12 @@ public class HomePage extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        Context context = getContext();
+        Context context = requireContext();
         super.onViewCreated(view, savedInstanceState);
-        if (context != null) {
-            graphColor = ThemeColors.getGraphColor(context);
-            textColor = ThemeColors.getTextColor(context);
-        }
+
+        graphColor = ThemeColors.getGraphColor(context);
+        textColor = ThemeColors.getTextColor(context);
+
         circleProgressView = view.findViewById(R.id.circleView);
 
         textOnTime = view.findViewById(R.id.home_text_on_time);

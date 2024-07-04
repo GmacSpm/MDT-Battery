@@ -116,6 +116,7 @@ public class ListPage extends Fragment {
                 listTotalOff.setText(TimeConverter.getHumanTime(totalTimeInactive, true));
             } else {
                 cardView.setVisibility(View.INVISIBLE);
+                isVisible = false;
                 listTotal.setText(R.string.default_time);
                 listTotalOn.setText(R.string.default_time);
                 listTotalProgress.setProgress(50);
