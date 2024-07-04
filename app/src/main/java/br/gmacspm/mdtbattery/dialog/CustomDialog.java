@@ -30,7 +30,7 @@ public class CustomDialog extends Dialog {
         ((TextView) findViewById(R.id.dialog_button_apply)).setText(positive);
     }
 
-    public void setNegativeWord(String negative){
+    public void setNegativeWord(String negative) {
         ((TextView) findViewById(R.id.dialog_button_cancel)).setText(negative);
     }
 
@@ -76,7 +76,7 @@ public class CustomDialog extends Dialog {
         super(context);
         Window window = this.getWindow();
         if (window != null) {
-            this.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         }
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.dialog_custom);
@@ -101,7 +101,7 @@ public class CustomDialog extends Dialog {
         super(context);
         Window window = this.getWindow();
         if (window != null) {
-            this.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         }
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.dialog_custom);
