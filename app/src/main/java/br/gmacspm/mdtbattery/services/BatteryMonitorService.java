@@ -9,6 +9,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.media.MediaPlayer;
 import android.os.BatteryManager;
 import android.os.Binder;
 import android.os.Build;
@@ -65,6 +66,7 @@ public class BatteryMonitorService extends Service {
     private BackgroundDB historyDatabase;
     private String stringTargetOn, stringTargetOff;
     private String stringSunday, stringMonday, stringTuesday, stringWednesday, stringThursday, stringFriday, stringSaturday;
+    private MediaPlayer mediaPlayer;
 
     public int getCurrentLevel() {
         return batteryPct;
@@ -474,9 +476,17 @@ public class BatteryMonitorService extends Service {
         if (batteryPct >= rechargeTarget && batteryPct < rechargeTarget + 2 &&
                 isCharging()) {
             vibrateFourTimes(this);
+            playSound();
         } else if (batteryPct <= dischargeTarget && batteryPct > dischargeTarget - 2 &&
                 !isCharging()) {
             vibrateFourTimes(this);
+            playSound();
+        }
+    }
+
+    private void playSound() {
+        if (mediaPlayer != null && !mediaPlayer.isPlaying()) {
+            mediaPlayer.start();
         }
     }
 
@@ -701,7 +711,8 @@ public class BatteryMonitorService extends Service {
         loadStrings();
         loadPreferences();
         loadHistory();
-
+        mediaPlayer = MediaPlayer.create(this, R.raw.charge_notification); // Replace `alert_sound` with your file name
+        mediaPlayer.setLooping(false);
 
         notificationLayout = new RemoteViews(getPackageName(), R.layout.notification_custom);
         createNotification(this);
@@ -750,6 +761,11 @@ public class BatteryMonitorService extends Service {
         unregisterReceiver(screenChangeReceiver);
         stopTimer();
         isServiceRunning = false;
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
         super.onDestroy();
     }
 
