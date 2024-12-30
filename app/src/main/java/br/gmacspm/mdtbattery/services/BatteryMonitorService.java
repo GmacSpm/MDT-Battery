@@ -711,7 +711,7 @@ public class BatteryMonitorService extends Service {
         loadStrings();
         loadPreferences();
         loadHistory();
-        mediaPlayer = MediaPlayer.create(this, R.raw.charge_notification); // Replace `alert_sound` with your file name
+        mediaPlayer = MediaPlayer.create(this, R.raw.charge_notification);
         mediaPlayer.setLooping(false);
 
         notificationLayout = new RemoteViews(getPackageName(), R.layout.notification_custom);
