@@ -473,8 +473,7 @@ public class BatteryMonitorService extends Service {
      * Vibrate if reach dischargeTarget or rechargeTarget.
      */
     private void vibrateOnReach() {
-        if (batteryPct >= rechargeTarget && batteryPct < rechargeTarget + 2 &&
-                isCharging()) {
+        if (batteryPct >= rechargeTarget && isCharging()) {
             vibrateFourTimes(this);
             playSound();
         } else if (batteryPct <= dischargeTarget && batteryPct > dischargeTarget - 2 &&
