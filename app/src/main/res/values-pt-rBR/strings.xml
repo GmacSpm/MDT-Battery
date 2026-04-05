@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">MDT Bateria</string>
-    <string name="yes">sim</string>
-    <string name="no">não</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
     <string name="settings">Configurações</string>
     <string name="reset">Resetar</string>
     <string name="default_time">--:--</string>
@@ -19,14 +19,14 @@
     <string name="mah_multiplier">Multiplicador mAh: %.2f</string>
     <string name="general">Geral</string>
     <string name="default_dialog_edit">1.0</string>
-    <string name="average_active">Média %% ativo</string>
+    <string name="average_active">Média &#x029D6; ativo</string>
     <string name="ends_at">Termina em</string>
     <string name="utilization">Utilização</string>
     <string name="expectation">Expectativa</string>
     <string name="graph">Gráfico</string>
     <string name="active_time">Tempo ativo</string>
     <string name="inactive_time">Tempo inativo</string>
-    <string name="average_inactive">Média %% inativo</string>
+    <string name="average_inactive">Média &#x029D7; inativo</string>
     <string name="remaining_active">Restante ativo</string>
     <string name="remaining_inactive">Restante inativo</string>
     <string name="time_list">Lista de tempo</string>
@@ -36,9 +36,9 @@
     <string name="max">Máx.</string>
     <string name="actual">Atual</string>
     <string name="notification_average_on">Média on</string>
-    <string name="notification_target_on">Até %d on</string>
+    <string name="notification_target_on">Até %d</string>
     <string name="notification_avg_off">Média off</string>
-    <string name="notification_target_off">Até %d off</string>
+    <string name="notification_target_off">Até %d</string>
     <string name="bottom_nav_general">Uso</string>
     <string name="bottom_nav_list">Lista</string>
     <string name="bottom_nav_meter">Mah</string>
@@ -59,7 +59,6 @@
     <string name="action_bar_meter">Medir</string>
     <string name="action_bar_general">Geral</string>
     <string name="action_bar_list">Lista</string>
-    <string name="dialog_reset_title">Resetar?</string>
     <string name="dialog_reset_message">Deseja resetar todas as medições?</string>
     <string name="day_sunday">Dom</string>
     <string name="day_monday">Seg</string>
@@ -70,4 +69,9 @@
     <string name="day_saturday">Sáb</string>
     <string name="dialog_cancel">Cancelar</string>
     <string name="dialog_apply">Aplicar</string>
+    <string name="version">Versão: 1.0.0</string>
+    <string name="about">Sobre</string>
+    <string name="dialog_open_license">Deseja abrir licença: \n%s?</string>
+    <string name="dialog_open_text">Abrir</string>
+    <string name="battery_service">Serviço de bateria</string>
 </resources>

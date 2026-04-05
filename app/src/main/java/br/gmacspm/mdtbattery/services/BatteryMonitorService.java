@@ -9,6 +9,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.media.MediaPlayer;
 import android.os.BatteryManager;
 import android.os.Binder;
 import android.os.Build;
@@ -17,6 +18,7 @@ import android.os.PowerManager;
 import android.os.SystemClock;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
+import android.os.VibratorManager;
 import android.util.Log;
 import android.widget.RemoteViews;
 
@@ -37,6 +39,7 @@ import br.gmacspm.mdtbattery.interfaces.ServiceCallback;
 import br.gmacspm.mdtbattery.models.UsageModel;
 import br.gmacspm.mdtbattery.room.background.BackgroundDB;
 import br.gmacspm.mdtbattery.utils.TimeConverter;
+
 public class BatteryMonitorService extends Service {
     private BatteryMonitorService context;
     public static final int DISCONNECTED = 0;
@@ -63,6 +66,7 @@ public class BatteryMonitorService extends Service {
     private BackgroundDB historyDatabase;
     private String stringTargetOn, stringTargetOff;
     private String stringSunday, stringMonday, stringTuesday, stringWednesday, stringThursday, stringFriday, stringSaturday;
+    private MediaPlayer mediaPlayer;
 
     public int getCurrentLevel() {
         return batteryPct;
@@ -249,7 +253,7 @@ public class BatteryMonitorService extends Service {
 
         Intent intent = new Intent(context, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_IMMUTABLE);
 
         notificationManager.notify(NOTIFICATION_ID,
                 new NotificationCompat.Builder(this, CHANNEL_ID).
@@ -267,7 +271,7 @@ public class BatteryMonitorService extends Service {
         notificationLayout.setTextViewText(R.id.notification_target_percent_2, String.format(stringTargetOff, targetPercent));
         Intent intent = new Intent(context, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_IMMUTABLE);
 
         notificationManager.notify(NOTIFICATION_ID,
                 new NotificationCompat.Builder(this, CHANNEL_ID).
@@ -299,7 +303,7 @@ public class BatteryMonitorService extends Service {
             Intent intent = new Intent(context, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
-            PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_IMMUTABLE);
             builder.setContentIntent(pendingIntent);
             Notification notification = builder.build();
 
@@ -318,7 +322,7 @@ public class BatteryMonitorService extends Service {
             Intent intent = new Intent(context, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
-            PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_IMMUTABLE);
             builder.setContentIntent(pendingIntent);
 
             Notification notification = builder.build();
@@ -327,12 +331,20 @@ public class BatteryMonitorService extends Service {
 
     }
 
+    // -Xlint bug shows a deprecation here even if it seems to be OK...
     private void vibrateOnChange() {
         if (isVibrateOnChange && !isCharging()) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE));
+            if (Build.VERSION.SDK_INT >= 31) { // Android 12
+                VibratorManager vibratorManager = (VibratorManager) context.getSystemService(Context.VIBRATOR_MANAGER_SERVICE);
+                Vibrator vibrator = vibratorManager.getDefaultVibrator();
+                vibrator.vibrate(VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE));
             } else {
-                ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(50);
+                Vibrator vibrator = (Vibrator) context.getSystemService(VIBRATOR_SERVICE);
+                if (Build.VERSION.SDK_INT >= 26) { // Android 8
+                    vibrator.vibrate(VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE));
+                } else {
+                    vibrator.vibrate(50);
+                }
             }
         }
     }
@@ -437,16 +449,22 @@ public class BatteryMonitorService extends Service {
         }
     };
 
-    public static void vibrateThreeTimes(Context context) {
-        Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
-        if (vibrator != null) {
-            long[] pattern = {300, 400, 300, 400, 300, 400, 300, 400}; // vibration pattern (wait 0ms, vibrate for 1000ms, wait 500ms, vibrate for 1000ms, wait 500ms, vibrate for 1000ms)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                // For Android 8.0 and above (API level 26+)
-                vibrator.vibrate(VibrationEffect.createWaveform(pattern, -1)); // -1 indicates no repeat
-            } else {
-                // For devices below Android 8.0
-                vibrator.vibrate(pattern, -1); // same vibration pattern as above
+    // -Xlint bug shows a deprecation here even if it seems to be OK...
+    public static void vibrateFourTimes(Context context) {
+        long[] pattern = {1000, 500, 1000, 500, 1000, 500, 1000, 500};
+        if (Build.VERSION.SDK_INT >= 31) { // Android 12 and above
+            VibratorManager vibratorManager = (VibratorManager) context.getSystemService(Context.VIBRATOR_MANAGER_SERVICE);
+            Vibrator vibrator = vibratorManager.getDefaultVibrator();
+            vibrator.vibrate(VibrationEffect.createWaveform(pattern, VibrationEffect.DEFAULT_AMPLITUDE));
+        } else {
+            Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+            if (vibrator != null) {
+                // vibration pattern (wait 1000ms, vibrate for 500ms, wait 1000ms...)
+                if (Build.VERSION.SDK_INT >= 26) { // For Android 8.0 and above (API level 26+)
+                    vibrator.vibrate(VibrationEffect.createWaveform(pattern, -1)); // -1 indicates no repeat
+                } else { // For devices below Android 8.0
+                    vibrator.vibrate(pattern, -1);
+                }
             }
         }
     }
@@ -455,12 +473,19 @@ public class BatteryMonitorService extends Service {
      * Vibrate if reach dischargeTarget or rechargeTarget.
      */
     private void vibrateOnReach() {
-        if (batteryPct >= rechargeTarget && batteryPct < rechargeTarget + 2 &&
-                isCharging()) {
-            vibrateThreeTimes(this);
+        if (batteryPct >= rechargeTarget && isCharging()) {
+            vibrateFourTimes(this);
+            playSound();
         } else if (batteryPct <= dischargeTarget && batteryPct > dischargeTarget - 2 &&
                 !isCharging()) {
-            vibrateThreeTimes(this);
+            vibrateFourTimes(this);
+            playSound();
+        }
+    }
+
+    private void playSound() {
+        if (mediaPlayer != null && !mediaPlayer.isPlaying()) {
+            mediaPlayer.start();
         }
     }
 
@@ -685,7 +710,8 @@ public class BatteryMonitorService extends Service {
         loadStrings();
         loadPreferences();
         loadHistory();
-
+        mediaPlayer = MediaPlayer.create(this, R.raw.charge_notification);
+        mediaPlayer.setLooping(false);
 
         notificationLayout = new RemoteViews(getPackageName(), R.layout.notification_custom);
         createNotification(this);
@@ -734,6 +760,11 @@ public class BatteryMonitorService extends Service {
         unregisterReceiver(screenChangeReceiver);
         stopTimer();
         isServiceRunning = false;
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
         super.onDestroy();
     }
 

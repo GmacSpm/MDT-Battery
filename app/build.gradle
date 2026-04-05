@@ -48,17 +48,17 @@ android {
 
 dependencies {
     // AndroidX dependencies
-    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation libs.appcompat
 
-    implementation 'com.google.android.material:material:1.7.0'
-    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
-    implementation 'com.github.jakob-grabner:Circle-Progress-View:1.4'
-    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation libs.material
+    implementation libs.mpandroidchart
+    implementation libs.circleprogressview
+    implementation libs.cardview
 
-    testImplementation 'junit:junit:4.12'
+    testImplementation libs.junit
 
-    implementation 'androidx.room:room-runtime:2.5.1'
-    annotationProcessor 'androidx.room:room-compiler:2.5.1'
+    implementation libs.roomruntime
+    annotationProcessor libs.roomcompiler
 
     // testImplementation 'junit:junit:4.13.2'
     // androidTestImplementation 'androidx.test.ext:junit:1.1.5'
